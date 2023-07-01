@@ -61,8 +61,20 @@ Route::prefix('hello')->group(function() {
 
 // Użycie prefixu Route:prefix w celu grupowania tras routingu 
 
-Route::redirect('/hello/world', '/hello/{name?}/{age?}', 301);
+Route::redirect('/hello/world', '/hello/{name?}/{age?}', 301  );
 
 // Sposób na przekierowanie trasy routing stosując statyczną metodę klasy Route, przekazane parametry to trasy routingu jakie mając być wyswietlone
 // Powyższe przekierowanie po wpisaniu na pasku wyszukiwania /hello/world przekieruje nasze żądanie na /hello/{name?}/{$age?} i wyswietli treść strony 
 // metoda przyjmuje również trzeci argument, który  jest kodem dopowiedzi np,404
+
+//-------------------------------------------------------------------------------
+
+//Powiązanie modelu z parametrem przykład
+
+Route::get('api/books/{book}', function (App\Book $book) {
+    return $book->title;
+});
+
+// - tworzy żądanie get z identyfikatorem
+// - tworzy funkcje obsługującą żadanie (fukacja z modelem jako parametr)
+// - na podstawie identyfikatora wyszukuje w bazie rekord a nastepnie udostepnia go w formie obiektu
