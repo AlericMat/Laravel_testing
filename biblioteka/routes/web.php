@@ -46,22 +46,22 @@ Route::get('/', function () {
 
 // używanie takich przekierowań ułatwia zarządzanie trasami 
 
-Route::prefix('hello')->group(function() {
-    Route::get('/world', function () {
-        return "Witaj Świecie";
-    });
-    Route::get('/{name?}/{age?}', function (String $name = "z nieznanych krain", int $age = null) {
-        echo "Witaj przybyszu ".$name;
-        if(is_null($age)) {
-        echo " nie podałeś swojego wieku";}
-        else {
-        echo " według podanych danych masz $age lat";}
-    })->name('powitanie');
-});
+// Route::prefix('hello')->group(function() {
+//     Route::get('/world', function () {
+//         return "Witaj Świecie";
+//     });
+//     Route::get('/{name?}/{age?}', function (String $name = "z nieznanych krain", int $age = null) {
+//         echo "Witaj przybyszu ".$name;
+//         if(is_null($age)) {
+//         echo " nie podałeś swojego wieku";}
+//         else {
+//         echo " według podanych danych masz $age lat";}
+//     })->name('powitanie');
+// });
 
 // Użycie prefixu Route:prefix w celu grupowania tras routingu 
 
-Route::redirect('/hello/world', '/hello/{name?}/{age?}', 301  );
+// Route::redirect('/hello/world', '/hello/{name?}/{age?}', 301  );
 
 // Sposób na przekierowanie trasy routing stosując statyczną metodę klasy Route, przekazane parametry to trasy routingu jakie mając być wyswietlone
 // Powyższe przekierowanie po wpisaniu na pasku wyszukiwania /hello/world przekieruje nasze żądanie na /hello/{name?}/{$age?} i wyswietli treść strony 
@@ -71,10 +71,18 @@ Route::redirect('/hello/world', '/hello/{name?}/{age?}', 301  );
 
 //Powiązanie modelu z parametrem przykład
 
-Route::get('api/books/{book}', function (App\Book $book) {
-    return $book->title;
-});
+// Route::get('api/books/{book}', function (App\Book $book) {
+//     return $book->title;
+// });
 
 // - tworzy żądanie get z identyfikatorem
 // - tworzy funkcje obsługującą żadanie (fukacja z modelem jako parametr)
 // - na podstawie identyfikatora wyszukuje w bazie rekord a nastepnie udostepnia go w formie obiektu
+
+Route::resource('book', 'BookController');
+
+// Powyższy elemet routingu obsluguje wszytkie typy żądań za pomocą motod zdefiniowanych w klasie
+// wiecej informacji w dokumentacji kontrolerow https://laravel.com/docs/10.x/controllers
+
+    // Ogólnie  routing to przełożenie adresów URL (zapytan get, przetwarzanie formularzy-post itp, jakaś interakcje w widoku strony) na wykonywany kod;
+
