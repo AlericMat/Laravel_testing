@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 
+// koniecznie trzeba dodac powyższą scieżkę do controllera 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,10 +81,21 @@ Route::get('/', function () {
 // - tworzy funkcje obsługującą żadanie (fukacja z modelem jako parametr)
 // - na podstawie identyfikatora wyszukuje w bazie rekord a nastepnie udostepnia go w formie obiektu
 
-Route::resource('book', 'BookController');
+// Route::get('books', [App\Http\Controllers\BookController::class, 'index']);
+
+
+Route::resource('books', BookController::class);
+//Route::resource nie przyjmje tablicy jako parametru
 
 // Powyższy elemet routingu obsluguje wszytkie typy żądań za pomocą motod zdefiniowanych w klasie
 // wiecej informacji w dokumentacji kontrolerow https://laravel.com/docs/10.x/controllers
 
     // Ogólnie  routing to przełożenie adresów URL (zapytan get, przetwarzanie formularzy-post itp, jakaś interakcje w widoku strony) na wykonywany kod;
 
+Route::get('onlyjson', function () {
+
+})->middleware('isjson');
+
+Route::group(['middleware' => 'isjson'], function () {
+    //Route::get()
+});
