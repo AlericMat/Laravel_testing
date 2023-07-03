@@ -16,7 +16,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('/book/list', ['bookList' => 'Tu będzie lista książek']);
+        return view('Myview/list', ['booksList' =>  array()]);
     }
 
     /**
@@ -66,4 +66,5 @@ class BookController extends Controller
     {
         //
     }
+
 }

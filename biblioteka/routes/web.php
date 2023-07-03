@@ -92,18 +92,16 @@ Route::resource('books', BookController::class);
 
     // Ogólnie  routing to przełożenie adresów URL (zapytan get, przetwarzanie formularzy-post itp, jakaś interakcje w widoku strony) na wykonywany kod;
 
-Route::get('list', function () {
-    return View::make('Myview/template');
-});
+// Route::get('list', function () {
+//     return View::make('Myview/template');
+// });
 
-Route::get('list2', function () {
-    return View::make('Myview/list');
-});
 
-Route::get('onlyjson', function () {
 
-})->middleware('isjson');
+// Route::get('onlyjson', function () {
 
-Route::group(['middleware' => 'isjson'], function () {
-    //Route::get()
-});
+// })->middleware('isjson');
+
+// Route::group(['middleware' => 'isjson'], function () {
+//     //Route::get()
+// });

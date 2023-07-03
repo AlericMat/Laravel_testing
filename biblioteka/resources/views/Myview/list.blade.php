@@ -1,12 +1,18 @@
 @extends('Myview.template')
 
-@section('title', 'Page Title')
+@section('title')
+    Lista książek
+@endsection
 
 
 
 @section('content')
-<div class="content">
-    Główna cześć strony
-
+<div class="container">
+    @forelse($booksList as $book)
+        Tu będą dane książki
+        @empty
+        Brak rekordów!
+    @endforelse
 </div>
 @endsection
+
