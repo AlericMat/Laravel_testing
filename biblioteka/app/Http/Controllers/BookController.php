@@ -16,7 +16,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        echo "Tu będą moje ksiązki";
+        return view('/book/list', ['bookList' => 'Tu będzie lista książek']);
     }
 
     /**
