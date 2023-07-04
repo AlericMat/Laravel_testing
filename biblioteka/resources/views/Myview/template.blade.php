@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item">
-                    <a href="{{ URL::to('books') }}" class="nav-link border border-primary"> Książki </a>
+                    <a href="{{ URL::to('books') }}" class="nav-link border border-primary rounded-pill text-center mt-3"> Książki </a>
                 </li>
             </ul>
     </div>
