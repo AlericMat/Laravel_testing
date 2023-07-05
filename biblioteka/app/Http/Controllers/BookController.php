@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -14,9 +15,10 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Book $book)
     {
-        return view('Myview/list', ['booksList' =>  array()]);
+        $bookList = Book::all();
+        return view('Myview/list', ['booksList' =>  $bookList]);
     }
 
     /**
