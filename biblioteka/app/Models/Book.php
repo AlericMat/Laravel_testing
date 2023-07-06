@@ -15,5 +15,8 @@ class Book extends Model
     public function isbn() {
         return $this->hasOne('App\Models\Isbn');
     }
+    public function loans() {
+        return $this->hasMany('App\Models\Loan');
+    }
     use HasFactory;
 }

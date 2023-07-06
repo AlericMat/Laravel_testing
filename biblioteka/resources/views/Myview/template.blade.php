@@ -20,6 +20,8 @@
                 <li class="nav-item">
                     <a href="{{ URL::to('books') }}" class="nav-link border border-primary rounded-pill text-center mt-3"> Książki </a>
                 </li>
+                <li class="nav-item"><a href="{{ URL::to('loans') }}" class="nav-link border border-primary rounded-pill text-center mt-3"> Wypożyczenia</a></li>
+
             </ul>
     </div>
     </nav>

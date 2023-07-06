@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\LoanController;
 
 // koniecznie trzeba dodac powyższą scieżkę do controllera 
 /*
@@ -88,7 +89,7 @@ Route::resource('books', BookController::class);
 Route::get('books/{id}/delete', [App\Http\Controllers\BookController::class, 'destroy']); // poprawne przekazanie żądania http do kontrolera
 
                                                                                           //Route::get('/books/{id}/delete', 'BookController@destroy')  -> NIE DZIAŁA nie wiedzieć czemu
-
+Route::resource('loans', LoanController::class);
 
 
 //Route::resource nie przyjmje tablicy jako parametru
