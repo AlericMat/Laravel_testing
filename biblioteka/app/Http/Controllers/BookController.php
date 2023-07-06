@@ -24,9 +24,17 @@ class BookController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $book = new Book();
+        $book->name = "Pan Tadeusz";
+        $book->year = "1999";
+        $book->publication_place = "Kraków";
+        $book->pages = 450;
+        $book->price = 79.99;
+        $book->save();
+
+        return redirect('books');
     }
 
     /**
@@ -42,7 +50,8 @@ class BookController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $book = Book::find($id);
+        return view('Myview/show',['book' => $book]);
     }
 
     /**
@@ -50,7 +59,15 @@ class BookController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $book = Book::find($id);
+        $book->name = "Quo Vadis";
+        $book->year = 2001;
+        $book->publication_place = "Warszawa";
+        $book->pages = 650;
+        $book->price = 59.99;
+        $book->save();
+
+        return redirect('books');
     }
 
     /**
