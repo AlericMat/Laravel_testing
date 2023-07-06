@@ -18,5 +18,8 @@ class Book extends Model
     public function loans() {
         return $this->hasMany('App\Models\Loan');
     }
+    public function author() {
+        return $this->belongsToMany('App\Models\Author');
+    }
     use HasFactory;
 }

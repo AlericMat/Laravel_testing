@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LoanController;
+use App\Http\Controllers\AuthorController;
 
 // koniecznie trzeba dodac powyższą scieżkę do controllera 
 /*
@@ -90,6 +91,7 @@ Route::get('books/{id}/delete', [App\Http\Controllers\BookController::class, 'de
 
                                                                                           //Route::get('/books/{id}/delete', 'BookController@destroy')  -> NIE DZIAŁA nie wiedzieć czemu
 Route::resource('loans', LoanController::class);
+Route::resource('authors', AuthorController::class);
 
 
 //Route::resource nie przyjmje tablicy jako parametru

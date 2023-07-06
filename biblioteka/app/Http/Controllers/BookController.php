@@ -27,13 +27,14 @@ class BookController extends Controller
      */
     public function create(Request $request)
     {
-        $book = new Book();
-        $book->name = "Pan Tadeusz";
-        $book->year = "1999";
-        $book->publication_place = "Kraków";
-        $book->pages = 450;
-        $book->price = 79.99;
+        $book= new Book();
+        $book->name = 'Czarny Dom';
+        $book->year = 2010;
+        $book->publication_place = 'Warszawa';
+        $book->pages = 640;
+        $book->price = 49.99;
         $book->save();
+
         
         $isbn = new Isbn(['number' => '43252535', 'issued_on'=> '2015-04-20', 'issued_by'=>'Wydawca']);
         $book->isbn()->save($isbn);
