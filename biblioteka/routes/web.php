@@ -85,6 +85,12 @@ Route::get('/', function () {
 
 
 Route::resource('books', BookController::class);
+Route::get('books/{id}/delete', [App\Http\Controllers\BookController::class, 'destroy']); // poprawne przekazanie żądania http do kontrolera
+
+                                                                                          //Route::get('/books/{id}/delete', 'BookController@destroy')  -> NIE DZIAŁA nie wiedzieć czemu
+
+
+
 //Route::resource nie przyjmje tablicy jako parametru
 
 // Powyższy elemet routingu obsluguje wszytkie typy żądań za pomocą motod zdefiniowanych w klasie
