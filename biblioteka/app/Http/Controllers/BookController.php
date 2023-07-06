@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Isbn;
 use App\Models\Book;
 use App\Models\User;
 use Illuminate\View\View;
@@ -33,6 +34,9 @@ class BookController extends Controller
         $book->pages = 450;
         $book->price = 79.99;
         $book->save();
+        
+        $isbn = new Isbn(['number' => '43252535', 'issued_on'=> '2015-04-20', 'issued_by'=>'Wydawca']);
+        $book->isbn()->save($isbn);
 
         return redirect('books');
     }
