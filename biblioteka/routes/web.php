@@ -84,7 +84,9 @@ Route::get('/', function () {
 // - na podstawie identyfikatora wyszukuje w bazie rekord a nastepnie udostepnia go w formie obiektu
 
 // Route::get('books', [App\Http\Controllers\BookController::class, 'index']);
-
+Route::get('books/cheapbook', [App\Http\Controllers\BookController::class, 'cheapbook']);
+Route::get('books/longest', [App\Http\Controllers\BookController::class, 'longest']);
+Route::get('books/search', [App\Http\Controllers\BookController::class, 'search']);
 
 Route::resource('books', BookController::class);
 Route::get('books/{id}/delete', [App\Http\Controllers\BookController::class, 'destroy']); // poprawne przekazanie żądania http do kontrolera

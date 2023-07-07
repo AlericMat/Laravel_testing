@@ -9,20 +9,25 @@
     <link rel="stylesheet" href="{{ URL::asset('style.css')}}">
 </head>
 <body>
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
         data-target="#navbarNav" aria-controls="navbarNav" aria-expended="false"
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>    
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item">
-                    <a href="{{ URL::to('books') }}" class="nav-link border border-primary rounded-pill text-center mt-3"> Książki </a>
+    <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0" id="navbarNav">
+            <ul class="nav navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a href="{{ URL::to('books') }}" class="nav-link dropdown-toggle" data-toggle="dropdown"> Książki </a>
+                    <div class="dropdown-menu">
+                        <a href="{{ URL::to('books/cheapbook') }}" class="dropdown-item">Top 3 najtańsze ksiązki</a>
+                        <a href="{{ URL::to('books/longest') }}" class="dropdown-item">Top 3 najdłuższe ksiązki</a>
+                        <a href="{{ URL::to('books') }}" class="dropdown-item"> Książki </a>
+                    </div>
                 </li>
-                <li class="nav-item"><a href="{{ URL::to('loans') }}" class="nav-link border border-primary rounded-pill text-center mt-3"> Wypożyczenia</a></li>
-                <li class="nav-item"><a href="{{ URL::to('authors') }}" class="nav-link border border-primary rounded-pill text-center mt-3"> Autorzy</a></li>
-
+                <li class="nav-item"><a href="{{ URL::to('loans') }}" class="nav-link "> Wypożyczenia</a></li>
+                <li class="nav-item"><a href="{{ URL::to('authors') }}" class="nav-link "> Autorzy</a></li>
+                
             </ul>
     </div>
     </nav>

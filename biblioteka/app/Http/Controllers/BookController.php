@@ -7,6 +7,7 @@ use App\Models\Book;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -92,5 +93,18 @@ class BookController extends Controller
         $book->delete();
         return redirect('books');
     }
+    public function cheapbook(Book $book) {
+        $booksList = DB::table('book')->orderBy('price','asc')->limit(3)->get();
+        return view('/Myview/list',['booksList' => $booksList]);
+    }
+    public function longest(Book $book) {
+        $booksList = DB::table('book')->orderBy('pages','desc')->limit(3)->get();
+        return view('Myview/list', ['booksList'=>$booksList]);
+    }
+    public function search(Request $request, Book $book) {
 
+        $q = $request->input('q',"");
+        $booksList = DB::table('book')->where('name','like',"%".$q."%")->get();
+        return view('Myview/list',['booksList'=>$booksList]);       //Prześledzić jak kolekcje są przekazywane 
+    }
 }
